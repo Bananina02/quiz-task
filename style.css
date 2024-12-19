@@ -1,0 +1,283 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+img{
+    vertical-align: top;
+    max-width: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body{
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+}
+.section--quiz{
+    padding: 82px 0 86px;
+}
+.wrapper-inside{
+    width: 100%;
+    max-width: 886px;
+    margin: 0 auto;
+}
+.quiz__title{
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 58.51px;
+    margin-bottom: 20px;
+}
+.quiz__item-title{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.26px;
+    margin-bottom: 20px;
+}
+.quiz__items{
+    position: relative;
+}
+.quiz__item{
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(247, 247, 247, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 300ms ease-in;
+    overflow: hidden;
+    width: 100%;
+    min-height: 528px;
+}
+.quiz__item.visible{
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
+.quiz__questions{
+    margin: -9px 0;
+}
+.quiz__question-item{
+    padding: 9px 0;
+    transition: all 300ms ease-in;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.question-visible .quiz__question-item{
+    opacity: 1;
+    transform: translateX(0);
+}
+.quiz__item.visible .quiz__question-item.active{
+    transform: translateX(0);
+    opacity: 1;
+}
+/* The container */
+.quiz__question-item label {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.quiz__question-item label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 1);
+    background-color: unset;
+}
+
+.quiz__question-item label:hover input ~ .checkmark {
+    border: 1px solid rgba(51, 0, 255, 1);
+}
+
+.quiz__question-item label input:checked ~ .checkmark {
+    background-color: rgba(51, 0, 255, 1);
+    border: 1px solid rgba(51, 0, 255, 1);
+}
+.quiz-item-result-container{
+    margin-top: 500px;
+}
+.quiz-result__item{
+    padding: 40px;
+    border-radius: 20px;
+}
+.quiz-result-true{
+    background: rgba(229, 245, 225, 1);
+}
+.quiz-result-false{
+    background: rgba(255, 224, 224, 1);
+}
+.quiz__item-result-title{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.38px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.quiz-item-result-wrapper .quiz__item-title{
+    margin-bottom: 15px;
+}
+.quiz-result__item p{
+    line-height: 22.4px;
+}
+.quiz-item-result-wrapper{
+    margin-bottom: 50px;
+}
+.quiz-item-result-wrapper span{
+    font-size: 16px;
+    line-height: 22.4px;
+}
+section{
+    overflow: hidden;
+}
+.quiz__results{
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 300ms ease-in;
+}
+.quiz__results.visible{
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+}
+.quiz__results .quiz-result__item{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+.quiz__results .quiz-result__item.visible{
+    transform: translateX(0);
+    opacity: 1;
+}
+.quiz__results-text p{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 33.6px;
+}
+.quiz__results-text{
+    margin-bottom: 20px;
+}
+.quiz__questions label span{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.5px;
+}
+.quiz__progressbar{
+    margin-top: 41px;
+    position: relative;
+    height: 12px;
+    border-radius: 99px;
+    background: rgba(247, 247, 247, 1);
+    width: 100%;
+    font-weight: 700;
+    transition: all 300ms ease-in;
+}
+.quiz__progressbar__start, .quiz__progressbar__end{
+    position: absolute;
+    top: calc(-100% - 9px);
+}
+.quiz__progressbar__start{
+    left: 0;
+}
+.quiz__progressbar__end{
+    right: 0;
+}
+.quiz__progressbar__separator{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    background: rgba(51, 0, 255, 1);
+    border-radius: 99px;
+    width: 0%;
+    transition: width 1000ms linear;
+}
+.quiz__progressbar.hide{
+    display: none;
+}
+.quiz__progressbar__separator-inside{
+    position: relative;
+}
+.quiz__progressbar__separator-inside span {
+    position: absolute;
+    right: -10px;
+    bottom: -32px;
+}
+
